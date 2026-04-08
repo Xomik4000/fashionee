@@ -3,10 +3,15 @@ import userEvent from "@testing-library/user-event";
 import { useState } from "react";
 import SearchBar from "./SearchBar";
 
-function SearchBarHarness() {
+function SearchBarHarness({ onChangeSpy = () => {} }) {
   const [value, setValue] = useState("");
 
-  return <SearchBar value={value} onChange={setValue} />;
+  const handleChange = (nextValue) => {
+    onChangeSpy(nextValue);
+    setValue(nextValue);
+  };
+
+  return <SearchBar value={value} onChange={handleChange} />;
 }
 
 describe("SearchBar", () => {
@@ -24,11 +29,11 @@ describe("SearchBar", () => {
     expect(input).toHaveValue("dress");
   });
 
-  it("passes the typed value to onChange", async () => {
+  it("passes the accumulated typed value to onChange", async () => {
     const user = userEvent.setup();
     const onChange = jest.fn();
 
-    render(<SearchBar value="" onChange={onChange} />);
+    render(<SearchBarHarness onChangeSpy={onChange} />);
 
     const input = screen.getByPlaceholderText(/search/i);
 

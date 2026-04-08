@@ -1,5 +1,4 @@
 import { act, renderHook } from "@testing-library/react";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import useProductsView from "./useProductsView";
 import { createFiltersState, SEARCH_DEBOUNCE_DELAY } from "../constants";
 
@@ -71,11 +70,11 @@ const products = [
 
 describe("useProductsView - filtering", () => {
   beforeEach(() => {
-    vi.useFakeTimers();
+    jest.useFakeTimers();
   });
 
   afterEach(() => {
-    vi.useRealTimers();
+    jest.useRealTimers();
   });
 
   it("filters products by search text only after debounce", () => {
@@ -98,7 +97,7 @@ describe("useProductsView - filtering", () => {
     expect(result.current.totalCount).toBe(7);
 
     act(() => {
-      vi.advanceTimersByTime(SEARCH_DEBOUNCE_DELAY);
+      jest.advanceTimersByTime(SEARCH_DEBOUNCE_DELAY);
     });
 
     expect(result.current.totalCount).toBe(1);
