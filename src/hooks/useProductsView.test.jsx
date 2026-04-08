@@ -95,7 +95,6 @@ describe("useProductsView - filtering", () => {
       result.current.setSearchText("  dReSs  ");
     });
 
-    // До debounce список ещё не должен измениться
     expect(result.current.totalCount).toBe(7);
 
     act(() => {
