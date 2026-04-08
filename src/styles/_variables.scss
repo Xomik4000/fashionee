@@ -1,0 +1,51 @@
+$color-black: rgba(0, 0, 0, 1);
+$color-white: rgba(255, 255, 255, 1);
+$color-text: rgba(68, 68, 68, 1);
+$color-text-50: rgba(68, 68, 68, 0.5);
+$color-border-20: rgba(68, 68, 68, 0.2);
+$color-accent: rgba(255, 142, 142, 1);
+$color-light-bg: rgba(241, 242, 243, 1);
+$color-advertising: rgba(238, 238, 238, 1);
+$color-sale-green: rgba(149, 204, 181, 1);
+
+$font-main: "Raleway", sans-serif;
+$font-second: "Josefin Sans", sans-serif;
+
+$container-width: 1140px;
+
+$breakpoint-desktop: 1440px;
+$breakpoint-laptop: 1200px;
+$breakpoint-tablet: 1024px;
+$breakpoint-tablet-sm: 768px;
+$breakpoint-mobile: 576px;
+$breakpoint-mobile-sm: 375px;
+
+@mixin laptop {
+  @media screen and (max-width: $breakpoint-laptop) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+@mixin tablet-sm {
+  @media screen and (max-width: $breakpoint-tablet-sm) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin mobile-sm {
+  @media screen and (max-width: $breakpoint-mobile-sm) {
+    @content;
+  }
+}

@@ -1,0 +1,261 @@
+@use "./variables" as *;
+
+.footer {
+  .footer-photo-5 {
+    position: relative;
+
+    .footer-points {
+      position: absolute;
+      left: 30px;
+      bottom: -50px;
+    }
+
+    .footer-points-10 {
+      position: absolute;
+      right: 30px;
+      top: -25px;
+    }
+  }
+
+  .footer-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 0 0 90px 0;
+
+    .column {
+      .title {
+        font-family: $font-second;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24px;
+      }
+
+      .logo {
+        margin: 0 0 25px 0;
+      }
+
+      .about-brand {
+        padding: 0 0 25px 0;
+        border-bottom: 1px solid rgba(68, 68, 68, 20%);
+        margin: 0 0 35px 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 24px;
+        color: rgba(68, 68, 68, 1);
+      }
+
+      .custom-list {
+        .item {
+          gap: 12px;
+
+          &::before {
+            width: 3px;
+            height: 3px;
+          }
+        }
+
+        a {
+          text-decoration: none;
+          color: #444444;
+          font-family: Raleway;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 24px;
+        }
+      }
+
+      &.column-1 {
+        max-width: 331px;
+        width: 100%;
+        margin: 0 60px 0 0;
+      }
+
+      &.column-2 {
+        margin: 0 108px 0 0;
+      }
+
+      &.column-3 {
+        margin: 0 74px 0 0;
+      }
+
+      &.column-2,
+      &.column-3 {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      &.column-4 {
+        max-width: 361px;
+        width: 100%;
+
+        .title {
+          margin: 0 0 16px 0;
+        }
+
+        .newsletter-text {
+          margin: 0 0 36px 0;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 23.8px;
+          color: rgba(68, 68, 68, 1);
+        }
+
+        .newsletter-form {
+          position: relative;
+
+          .input {
+            padding-right: 30px;
+          }
+
+          .send-icon {
+            position: absolute;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .copyright {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    border-top: 1px solid rgba(68, 68, 68, 20%);
+    padding-top: 23px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+    color: rgba(68, 68, 68, 1);
+
+    .payment-methods-container {
+      display: flex;
+      gap: 13px;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 24px;
+      color: rgba(68, 68, 68, 1);
+      flex-wrap: wrap;
+
+      .payment-methods {
+        display: flex;
+        gap: 8px;
+        list-style-type: none;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+@include laptop {
+  .footer {
+    .footer-info {
+      gap: 24px;
+
+      .column {
+        &.column-1 {
+          margin-right: 30px;
+        }
+
+        &.column-2 {
+          margin-right: 40px;
+        }
+
+        &.column-3 {
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+}
+
+@include tablet {
+  .footer {
+    .footer-photo-5 {
+      .footer-points,
+      .footer-points-10 {
+        display: none;
+      }
+    }
+
+    .footer-info {
+      margin: 0 0 70px 0;
+      gap: 24px 30px;
+
+      .column {
+        &.column-1,
+        &.column-2,
+        &.column-3,
+        &.column-4 {
+          margin-right: 0;
+          max-width: calc(50% - 15px);
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@include tablet-sm {
+  .footer {
+    .footer-info {
+      margin: 0 0 56px 0;
+      gap: 24px;
+
+      .column {
+        &.column-1,
+        &.column-2,
+        &.column-3,
+        &.column-4 {
+          max-width: 100%;
+        }
+      }
+    }
+
+    .copyright {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+}
+
+@include mobile {
+  .footer {
+    .footer-info {
+      margin: 0 0 40px 0;
+      gap: 20px;
+
+      .column {
+        .title {
+          font-size: 18px;
+          line-height: 22px;
+        }
+
+        .about-brand,
+        .custom-list a,
+        &.column-4 .newsletter-text {
+          font-size: 13px;
+          line-height: 22px;
+        }
+
+        &.column-4 {
+          .newsletter-text {
+            margin-bottom: 24px;
+          }
+        }
+      }
+    }
+
+    .copyright,
+    .copyright .payment-methods-container {
+      font-size: 13px;
+      line-height: 22px;
+    }
+
+    .copyright {
+      padding-top: 18px;
+    }
+  }
+}
